@@ -1,0 +1,13 @@
+bowtie_bin=/services/tools/bowtie2/2.3.4.1/bowtie2
+R_HOME=/services/tools/R/3.4.3/bin/
+scRNA_scripts=/home/projects/dan_bri/scratch/MARS-seq2.0_pipeline/scripts
+bowtie_index=/home/projects/dan_bri/scratch/MARS-seq2.0_pipeline/references/mm10-m26/index/mm10-m26
+oligos_file=annotations/oligos.txt
+bowtie_params=-t
+gene_intervals_file=/home/projects/dan_bri/scratch/MARS-seq2.0_pipeline/references/mm10-m26/gene_intervals_m26.txt
+spike_concentration_file=annotations/spike_concentrations.txt
+spike_seq_file=annotations/spike-seq.txt
+well_barcode_min_quality_thresh=20
+well_barcode_max_num_of_bad_quality_bp=1
+pool_barcode_min_quality_thresh=20
+pool_barcode_max_num_of_bad_quality_bp=1
