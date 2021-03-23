@@ -16,10 +16,10 @@ then
 fi
 
 # download and extract reference
-wget -O - ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M26/GRCm39.primary_assembly.genome.fa.gz | gunzip -c > $reference_dir/mm10/mm10-m26.fasta
+wget -O - ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M26/GRCm39.primary_assembly.genome.fa.gz | gunzip -c > $reference_dir/mm10-m26.fasta
 
 # add ERCC into fasta
-python helpers/create_ercc.py --input {{cookiecutter.project_name}}/spike-seq.txt --output $reference_dir/ercc.fasta
+python helpers/create_ercc.py --input {{cookiecutter.project_name}}/annotations/spike-seq.txt --output $reference_dir/ercc.fasta
 cat $reference_dir/ercc.fasta >> $reference_dir/mm10-m26.fasta
 
 # extract genes and regions from gtf/gff3
