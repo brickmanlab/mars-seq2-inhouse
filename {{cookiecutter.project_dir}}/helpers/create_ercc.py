@@ -15,7 +15,7 @@ if not os.path.exists(args.input):
 
 seq_length: int = 60
 spikes = pd.read_csv(args.input, sep='\t')
-with open(f'{args.output}/ercc.fasta', 'w') as output:
+with open(args.output, 'w') as output:
     for _, row in spikes.iterrows():
         comment = f'>{row["ERCC_ID"]}|{row["GenBank"]}|{row["5prime_assay"]}|{row["3prime_assay"]}'
         seq = '\n'.join([
