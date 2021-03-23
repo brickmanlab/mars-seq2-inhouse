@@ -1,7 +1,7 @@
 bowtie_bin=/services/tools/bowtie2/2.3.4.1/bowtie2
 R_HOME=/services/tools/R/3.4.3/bin/
 scRNA_scripts=/home/projects/dan_bri/scratch/MARS-seq2.0_pipeline/scripts
-bowtie_index=/home/projects/dan_bri/scratch/MARS-seq2.0_pipeline/references/mm10-m26/index/mm10-m26
+bowtie_index=/home/projects/dan_bri/data/DataBase/mm10-m26/index/mm10-m26
 oligos_file=annotations/oligos.txt
 bowtie_params=-t
 gene_intervals_file=annotations/gene_intervals_m26.txt
