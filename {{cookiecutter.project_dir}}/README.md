@@ -1,5 +1,23 @@
 # MARS-seq2.0-inhouse template
 
+## Create environment
+
+```bash
+module load anaconda3/4.0.0
+conda create -n mars python=3.7
+source activate mars
+pip install pandas numpy openpyxl
+```
+
+## Build reference
+
+```bash
+source activate mars
+
+chmod +x ./helpers/build_reference.sh
+./helpers/build_reference.sh
+```
+
 ## Run pipeline
 
 ```bash
@@ -9,7 +27,11 @@ module load tools
 module load gcc
 module load R/3.4.3
 module load perl/5.24.0
+module load anaconda3/4.0.0
 module load bowtie2/2.3.4.1
+
+# load python environment
+source activate mars
 
 # prepare files for Batch
 python helpers/prepare.py --input /path/to/xlsx/folder --output {{cookiecutter.project_name}}

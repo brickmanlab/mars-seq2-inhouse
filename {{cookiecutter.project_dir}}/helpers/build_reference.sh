@@ -7,7 +7,6 @@ reference_dir="/home/projects/dan_bri/data/DataBase/mm10-m26"
 
 # load computerome modules
 module load tools
-module load anaconda3/4.0.0
 module load bowtie2/2.3.4.1
 
 # check if directory exists
