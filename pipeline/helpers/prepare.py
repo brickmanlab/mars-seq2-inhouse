@@ -37,7 +37,7 @@ if __name__ == '__main__':
     )
 
     arg_parser.add_argument('--version', '-v', action='version', version=f'v0.1')
-    arg_parser.add_argument('--input', action='store', type=str, help='Input path with xls files', required=True)
+    arg_parser.add_argument('--input', action='store', type=str, help='Input path with xlsx files [amp_batches/seq_batches/wells_cells]', required=True)
     arg_parser.add_argument('--output', action='store', type=str, help='Output path to store the txt files', required=True)
 
     args = arg_parser.parse_args()

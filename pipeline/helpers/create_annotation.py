@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-import sys
 import os
+import sys
 import argparse
 import pandas as pd
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--input", type=str, help="Input file")
+parser.add_argument("--input", type=str, help="Input file [gff/gff3]")
 parser.add_argument("--output", type=str, help="Output file [txt separated]")
 args = parser.parse_args()
 
 if not os.path.exists(args.input):
     print('File not found')
-    sys.exit()
+    sys.exit(-1)
 
 gff = pd.read_csv(args.input, sep='\t', skiprows=7, header=None)
 gff.columns = ['chrom', 'annot', 'type', 'start', 'end', 'idk', 'strand', 'idk2', 'gene_id']
