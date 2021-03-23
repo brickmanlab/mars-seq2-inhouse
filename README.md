@@ -12,14 +12,14 @@ module load perl/5.24.0
 module load bowtie2/2.3.4.1
 
 # prepare files for Batch
-python helpers/prepare.py --input /path/to/xlsx/folder --output {{ cookiecutter.project_name }}
+python helpers/prepare.py --input /path/to/xlsx/folder --output {{cookiecutter.project_name}}
 
 # split cells per Batch
-scripts/split_fastqs.sh {{ cookiecutter.project_name }}/raw_reads/SB1/orig_files/ {{ cookiecutter.project_name }}/raw_reads/SB1/ 4000000
-scripts/split_fastqs.sh {{ cookiecutter.project_name }}/raw_reads/SB2/orig_files/ {{ cookiecutter.project_name }}/raw_reads/SB2/ 4000000
+scripts/split_fastqs.sh {{cookiecutter.project_name}}/raw_reads/SB1/orig_files/ {{cookiecutter.project_name}}/raw_reads/SB1/ 4000000
+scripts/split_fastqs.sh {{cookiecutter.project_name}}/raw_reads/SB2/orig_files/ {{cookiecutter.project_name}}/raw_reads/SB2/ 4000000
 
 # run pipeline
-scripts/run_pipeline_locally.sh {{ cookiecutter.project_name }}
+scripts/run_pipeline_locally.sh {{cookiecutter.project_name}}
 ```
 
 ## Extra files

@@ -1,5 +1,6 @@
 {
-  "project_name": "project_name",
+  "project_name": "Project name",
+  "project_dir": "pipeline",
   "repo_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
   "author_name": "Your name",
   "description": "A short description of the project."
