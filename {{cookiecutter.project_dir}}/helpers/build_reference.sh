@@ -17,7 +17,7 @@ fi
 echo "[build_reference.sh]> download and extract reference"
 wget -O - ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M26/GRCm39.primary_assembly.genome.fa.gz | gunzip -c > $reference_dir/mm10-m26.fasta
 
-echo "[build_reference.sh]> add ERCC into fasta"
+echo "[build_reference.sh]> create ERCC fasta"
 python helpers/create_ercc.py --input {{cookiecutter.project_name}}/annotations/spike-seq.txt --output $reference_dir/ercc.fasta
 
 echo "[build_reference.sh]> extract genes and regions from gtf/gff3"
