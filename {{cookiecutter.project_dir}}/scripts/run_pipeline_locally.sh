@@ -8,7 +8,7 @@ then
 fi
 
 scdb_path=$1
-number_of_cores=20
+number_of_cores=30
 
 rm -f $scdb_path/_logs/mapping_status 2> /dev/null
 rm -f $scdb_path/_logs/demultiplex_status 2> /dev/null
