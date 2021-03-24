@@ -81,6 +81,6 @@ if __name__ == '__main__':
 
     logging.info(f'Saving files into {args.output}...')
     amp_out.to_csv(f'{args.output}/annotations/amp_batches.txt', sep='\t', index=False)
-    amp_out['Amp_batch_ID'].to_csv(f'{args.output}/config/amp_batches_to_process.txt', sep='\t', index=False)
+    amp_out['Amp_batch_ID'].to_csv(f'{args.output}/config/amp_batches_to_process.txt', sep='\t', index=False, header=False)
     seq_out.to_csv(f'{args.output}/annotations/seq_batches.txt', sep='\t', index=False)
     wells_out.to_csv(f'{args.output}/annotations/wells_cells.txt', sep='\t', index=False)
