@@ -19,7 +19,6 @@ wget -O - ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M26/GR
 
 echo "[build_reference.sh]> add ERCC into fasta"
 python helpers/create_ercc.py --input {{cookiecutter.project_name}}/annotations/spike-seq.txt --output $reference_dir/ercc.fasta
-cat $reference_dir/ercc.fasta >> $reference_dir/mm10-m26.fasta
 
 echo "[build_reference.sh]> extract genes and regions from gtf/gff3"
 wget -O - ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M26/gencode.vM26.annotation.gff3.gz | gunzip -c > $reference_dir/m10-m26.gff3
@@ -28,6 +27,6 @@ cat helpers/ercc-regions.tsv >> {{cookiecutter.project_name}}/annotations/gene_i
 
 echo "[build_reference.sh]> build bowtie index"
 mkdir $reference_dir/index
-bowtie2-build $reference_dir/mm10-m26.fasta $reference_dir/index/mm10-m26
+bowtie2-build $reference_dir/mm10-m26.fasta,$reference_dir/ercc.fasta $reference_dir/index/mm10-m26
 
 echo "[build_reference.sh]> Done"
