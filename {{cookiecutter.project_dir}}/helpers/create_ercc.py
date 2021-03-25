@@ -13,14 +13,14 @@ if not os.path.exists(args.input):
     print('File not found')
     sys.exit(-1)
 
-seq_length: int = 60
+row_length: int = 70
 spikes = pd.read_csv(args.input, sep='\t')
 with open(args.output, 'w') as output:
     for _, row in spikes.iterrows():
-        comment = f'>{row["ERCC_ID"]}|{row["GenBank"]}|{row["5prime_assay"]}|{row["3prime_assay"]}'
+        comment = f'>{row["ERCC_ID"]}'
         seq = '\n'.join([
-            row['Sequence'][i:i+seq_length] 
-            for i in range(0, len(row['Sequence']), seq_length)
+            row['Sequence'][i:i+row_length] 
+            for i in range(0, len(row['Sequence']), row_length)
             ])
         output.write(f'{comment}\n')
         output.write(f'{seq}\n')
