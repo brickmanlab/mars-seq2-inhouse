@@ -16,12 +16,24 @@ if not os.path.exists(args.input):
 gff = pd.read_csv(args.input, sep='\t', skiprows=7, header=None)
 gff.columns = ['chrom', 'annot', 'type', 'start', 'end', 'idk', 'strand', 'idk2', 'gene_id']
 gff.dropna(inplace=True)
-gff = gff.query('type == "gene"')
 
+# transcripts
+gff_transcripts = gff.query('type == "transcript"')
+gff_transcripts['gene_name'] = gff_transcripts.gene_id.str.split(';', expand=True)[5].str.replace('gene_name=', '')
+
+# genes
+gff_genes = gff.query('type == "gene"')
+gff_genes['gene_name'] = gff_genes.gene_id.str.split(';', expand=True)[3].str.replace('gene_name=', '')
+
+# merge both transcript and genes
+gff = pd.concat([gff_transcripts, gff_genes])
+
+# fix columns types
 gff.start = gff.start.astype(int)
 gff.end = gff.end.astype(int)
-gff.strand = gff.strand.map({'+': 1, '-': 0})
-
-gff['gene_name'] = gff.gene_id.str.split(';', expand=True)[3].str.replace('gene_name=', '')
+gff.strand = gff.strand.map({'+': 1, '-': -1})
 gff = gff[['chrom', 'start', 'end', 'strand', 'gene_name']]
+
+# save unique results
+gff.drop_duplicates(inplace=True)
 gff.to_csv(args.output, index=None, sep='\t')
