@@ -1,0 +1,16 @@
+name: mars
+channels:
+  - bioconda
+  - conda-forge
+  - r
+  - defaults
+dependencies:
+  - bioconda::bowtie2==2.3.4.1
+  - bioconda::perl==5.26.0
+  - bioconda::star==2.7.3a
+  - r::r-base==3.4.3
+  - pip
+  - pip
+    - pandas
+    - numpy
+    - openpyxl

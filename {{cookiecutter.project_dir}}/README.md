@@ -4,9 +4,7 @@
 
 ```bash
 module load anaconda3/4.0.0
-conda create -n mars python=3.7
-source activate mars
-pip install pandas numpy openpyxl
+conda env create -f environment.yml && conda clean -a
 ```
 
 ## Build reference
