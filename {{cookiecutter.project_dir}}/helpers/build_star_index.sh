@@ -4,11 +4,6 @@ set -e
 
 reference_dir="/home/projects/dan_bri/data/DataBase/mm10-m26"
 
-# load computerome modules
-module load tools
-module load gcc/8.2.0
-module load star/2.7.0d
-
 # check if directory exists
 if [ ! -d $reference_dir ]
 then
