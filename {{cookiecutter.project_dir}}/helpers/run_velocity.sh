@@ -75,7 +75,7 @@ STAR \
   --readFilesCommand zcat
 
 echo "[run_velocity.sh]> cleaning temporary files"
-rm -rf Aligned.out.sam SJ.out.tab _STARtmp/ _temp/
+rm -rf Aligned.out.sam SJ.out.tab _STARtmp/ _temp/ *trim.fastq.gz
 
 # move files to output directory
 echo "[run_velocity.sh]> moving files into $OUTPUT/$BATCH"
@@ -85,5 +85,10 @@ mv Log* $OUTPUT/$BATCH
 mv *trim.fastq.gz $OUTPUT/$BATCH
 mv whitelist.txt $OUTPUT/$BATCH
 mv Solo.out $OUTPUT/$BATCH
+
+# genozip new raw files
+genozip Undetermined_S0_R1_001.fastq.gz -@ $THREADS -o $OUTPUT/$BATCH/Undetermined_S0_R1_001.fastq.genozip
+genozip Undetermined_S0_R2_001.fastq.gz -@ $THREADS -o $OUTPUT/$BATCH/Undetermined_S0_R2_001.fastq.genozip
+rm Undetermined*.gz
 
 echo "[run_velocity.sh]> Done"
